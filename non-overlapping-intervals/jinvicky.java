@@ -1,5 +1,10 @@
 import java.util.Arrays;
 
+/**
+ * [연계 추천 문제]
+ * #300 Longest Increasing Subsequence (DP)
+ * #646 Maximum Length of Pair Chain (DP/그리디) -> LIS 기본 공식에 그리디 사전 정렬만 얹었다.
+ */
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
         if (intervals == null || intervals.length == 1) return 0;
@@ -17,6 +22,9 @@ class Solution {
         int count = 1;
         int lastEndTime = intervals[0][1];
 
+        /**
+         * for문 i 포인터를 조작하는 것보다 명확한 로직 설정을 해야 한다. (개인 생각)
+         */
         for (int i = 1; i < intervals.length; i++) {
             if (intervals[i][0] >= lastEndTime) {
                 count++;
